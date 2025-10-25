@@ -11,3 +11,14 @@ secondaries:
 
 replication:
   secondaryDelay: 10000
+  timeout: 5000
+  retryDelays: [1000, 2000, 4000, 8000, 16000, 30000]
+
+heartbeat:
+  interval: 5000
+  suspectedThreshold: 2
+  unhealthyThreshold: 4
+
+quorum:
+  enabled: true
+  requiredPercentage: 0.5
