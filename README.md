@@ -5,7 +5,7 @@ For launch project need run command:
 docker compose up
 ```
 
-For tests:
+Iteration 1:
 ```bash
 #!/bin/bash
 
@@ -26,6 +26,4 @@ curl http://localhost:3001/messages -s | jq .
 echo ""
 echo "4. Getting messages from secondary2 node"
 curl http://localhost:3002/messages -s | jq .
-
-echo ""
 ```
