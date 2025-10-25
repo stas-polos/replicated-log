@@ -4,8 +4,10 @@ master:
 secondaries:
   - url: http://secondary1:3001
     name: secondary1
+    delay: 0
   - url: http://secondary2:3002
     name: secondary2
+    delay: 5000
 
 replication:
-  secondaryDelay: 2000
+  secondaryDelay: 10000
