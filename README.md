@@ -1,11 +1,13 @@
 ## Replicated log
 
 For launch project need run command:
+
 ```bash
 docker compose up
 ```
 
 Iteration 1:
+
 ```bash
 #!/bin/bash
 
