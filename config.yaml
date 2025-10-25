@@ -1,0 +1,11 @@
+master:
+  port: 4000
+
+secondaries:
+  - url: http://secondary1:3001
+    name: secondary1
+  - url: http://secondary2:3002
+    name: secondary2
+
+replication:
+  secondaryDelay: 2000
