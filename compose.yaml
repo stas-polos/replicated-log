@@ -1,0 +1,40 @@
+services:
+  master:
+    build: .
+    container_name: master
+    command: node src/master.js
+    ports:
+      - "4000:3000"
+    environment:
+      - PORT=3000
+    depends_on:
+      - secondary1
+      - secondary2
+    networks:
+      - replicated-log-network
+  secondary1:
+    build: .
+    container_name: secondary1
+    command: node src/secondary.js
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - SECONDARY_NAME=secondary1
+    networks:
+      - replicated-log-network
+  secondary2:
+    build: .
+    container_name: secondary2
+    command: node src/secondary.js
+    ports:
+      - "3002:3002"
+    environment:
+      - PORT=3002
+      - SECONDARY_NAME=secondary2
+    networks:
+      - replicated-log-network
+
+networks:
+  replicated-log-network:
+    driver: bridge
