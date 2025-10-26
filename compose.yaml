@@ -21,6 +21,7 @@ services:
     environment:
       - PORT=3001
       - SECONDARY_NAME=secondary1
+      - SECONDARY_DELAY=0
     networks:
       - replicated-log-network
   secondary2:
@@ -32,6 +33,7 @@ services:
     environment:
       - PORT=3002
       - SECONDARY_NAME=secondary2
+      - SECONDARY_DELAY=10000
     networks:
       - replicated-log-network
 
