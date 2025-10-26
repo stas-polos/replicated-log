@@ -38,7 +38,8 @@ app.post("/replicate", async (req, res) => {
   }
 
   const secondaryConfig = getSecondaryConfig();
-  await delay(secondaryConfig.delay, () => messages.push(message));
+  logger.info(`Delay for ${process.env.SECONDARY_NAME} -> ${process.env.SECONDARY_DELAY}`);
+  await delay(process.env.SECONDARY_DELAY || secondaryConfig.delay, () => messages.push(message));
 
   res.json({
     success: true,

@@ -8,6 +8,3 @@ secondaries:
   - url: http://secondary2:3002
     name: secondary2
     delay: 5000
-
-replication:
-  secondaryDelay: 10000
