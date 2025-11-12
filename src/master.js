@@ -28,6 +28,12 @@ async function replicateWithRetry(secondary, message, retryAttempt = 0) {
   const maxRetries = config.replication.retryDelays.length;
   const health = secondaryHealth.get(secondary.name);
 
+  if (health.status !== "healthy") {
+    logger.debug(`Skipping replication to ${secondary.name} - node is ${health.status}`);
+    health.pendingMessages.push(message);
+    return { secondary: secondary.name, success: false, skipped: true };
+  }
+
   try {
     const response = await axios.post(`${secondary.url}/replicate`, message, { timeout: config.replication.timeout });
 
